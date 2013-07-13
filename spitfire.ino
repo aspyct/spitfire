@@ -1,7 +1,5 @@
-#define GEAR 2
 
 #define INPUT_COUNT 1
-#define KEYMAP "g"
 
 int inputs[INPUT_COUNT] = {
   2
