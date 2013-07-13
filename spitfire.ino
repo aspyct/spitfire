@@ -1,14 +1,16 @@
-#define INPUT_COUNT 1
+#define INPUT_COUNT 2
 #define TIMEGUARD 100 // numper of milliseconds before a new input is taken into account
 
 int inputs[INPUT_COUNT] = {
-  2
+  2,
+  6
 };
 
 int states[INPUT_COUNT];
 
 char keymap[INPUT_COUNT * 2] = {
-  'd', 'g'
+  'd', 'g',
+  '6', '\0'
 };
 
 unsigned long fired[INPUT_COUNT];
@@ -40,7 +42,11 @@ void loop() {
     if (val != states[i] && time - fired[i] > TIMEGUARD) {
       states[i] = val;
       fired[i] = time;
-      Serial.print(keymap[i * 2 + val == HIGH]);
+      
+      char response = keymap[i * 2 + (val == HIGH)];
+      if (response) {
+        Serial.print(response);
+      }
     }
   }
 }
