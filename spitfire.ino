@@ -27,7 +27,7 @@ void setup() {
 }
 
 int readState(int pin) {
-  return digitalRead(pin)ßß;
+  return digitalRead(pin);
 }
 
 void loop() {
